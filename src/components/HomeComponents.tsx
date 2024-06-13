@@ -181,7 +181,7 @@ const HomeComponents = ({
           {data.map((item, index) =>
             index < 6 ? (
               <div
-                className="flex flex-col pe-5 cursor-pointer"
+                className="flex flex-col cursor-pointer"
                 onClick={() =>
                   router.push(`/${route}/${item.name.replaceAll(" ", "")}`)
                 }

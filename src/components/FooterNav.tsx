@@ -21,7 +21,7 @@ const FooterNav = () => {
     {
       icon: <BiLibrary />,
       icon2: <BiLibrary />,
-      href: "playlists",
+      href: "playlist",
       label: "Your Library",
     },
     {

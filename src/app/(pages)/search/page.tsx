@@ -70,7 +70,7 @@ const SearchPage = () => {
   return (
     <>
       {/* F O R - P H O N E S - O N L Y */}
-      <div className="block md:hidden mx-2">
+      <div className="block lg:hidden mx-2">
         <h1 className="text-2xl font-bold mb-5">Search</h1>
         <div className="w-full relative">
           <div className="absolute top-3 left-3 text-xl text-black">
@@ -119,11 +119,11 @@ const SearchPage = () => {
       {search !== "" ? (
         <>
           {topRelatedSongs.length > 0 ? (
-            <div className="my-100 mx-6 flex flex-row gap-10">
+            <div className="my-100 mx-2 md:mx-6 flex flex-col lg:flex-row gap-10">
               <div>
                 <h1 className="text-2xl font-bold mb-5">Top Result</h1>
                 <div
-                  className="min-w-[400px] relative p-4 rounded-lg bg-[#1f1f1f] hover:bg-neutral-600 cursor-pointer"
+                  className="w-full md:w-[500px]  relative p-4 rounded-lg bg-[#1f1f1f] hover:bg-neutral-600 cursor-pointer"
                   onMouseEnter={() => setHovered(topResult.name)}
                   onMouseLeave={() => setHovered("")}
                   onClick={() => playSong(topResult)}

@@ -5,7 +5,6 @@ import { useState } from "react";
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 import { IoSearchOutline } from "react-icons/io5";
 import { FaBars } from "react-icons/fa6";
-
 import { FaSpotify } from "react-icons/fa";
 
 export default function Nav() {
@@ -19,7 +18,9 @@ export default function Nav() {
     <>
       <div
         className={`sticky top-0 left-0 z-50  ${
-          scrollHeight > 150 ? "bg-neutral-900 " : "bg-opacity-0 bg-inherit"
+          scrollHeight > 150 || pathname === "/search"
+            ? "bg-neutral-900 "
+            : "bg-opacity-0 bg-inherit"
         }  w-full  p-2 text-lg`}
       >
         {/* N A V - D E S K T O P */}

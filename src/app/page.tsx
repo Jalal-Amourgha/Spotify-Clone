@@ -1,5 +1,6 @@
 "use client";
 
+import { Loader } from "@/components";
 import HomeComponents from "@/components/HomeComponents";
 import { useAppContext } from "@/context";
 
@@ -33,7 +34,7 @@ export default function Home() {
           />
         </>
       ) : (
-        ""
+        <Loader />
       )}
     </>
   );

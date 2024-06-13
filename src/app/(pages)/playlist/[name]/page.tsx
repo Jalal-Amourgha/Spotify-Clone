@@ -90,13 +90,13 @@ const PlaylistPage = ({ params }: PlaylistPageProps) => {
         </div>
       </div>
       <div>
-        <div className="flex justify-between items-center relative z-30 text-gray mx-5">
+        <div className="flex justify-between items-center relative text-gray mx-5">
           <BsThreeDots
             className="text-3xl cursor-pointer"
             onClick={() => setShowPlaylistProps(!showPlaylistProps)}
           />
           {showPlaylistProps ? (
-            <div className="absolute top-10 left-0 bg-neutral-700 p-1 rounded-lg flex flex-col gap-1 text-white w-56">
+            <div className="absolute top-10 left-0  bg-neutral-700 p-1 rounded-lg flex flex-col gap-1 text-white w-56">
               <div
                 className="flex items-center gap-2 rounded p-2 cursor-pointer hover:bg-neutral-800"
                 onClick={() =>
@@ -124,7 +124,7 @@ const PlaylistPage = ({ params }: PlaylistPageProps) => {
             List <RiMenuAddFill className="text-xl" />
           </div>
           {showListProps ? (
-            <div className="absolute top-10 right-0 bg-neutral-700 p-1 rounded-lg flex flex-col gap-1 text-white w-56">
+            <div className="absolute top-10 right-0  bg-neutral-700 p-1 rounded-lg flex flex-col gap-1 text-white w-56">
               <div className="flex items-center gap-2 rounded-lg p-2 cursor-pointer hover:bg-neutral-800">
                 <FaBars />
                 <p>Component</p>

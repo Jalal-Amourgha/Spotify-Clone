@@ -41,7 +41,7 @@ const EditPlaylist = () => {
   };
 
   return (
-    <div className="h-screen w-full absolute top-0 left-0 bg-black/50 flex items-center justify-center">
+    <div className="h-screen w-full absolute top-0 left-0 z-[100] bg-black/50 flex items-center justify-center">
       <div className="w-[500px] bg-neutral-800 p-5 rounded-lg">
         <div className="flex justify-between items-center mb-5">
           <h1 className="text-2xl text-white font-semibold">Edit details</h1>
