@@ -25,7 +25,7 @@ const DisplaySongs = ({
   const {
     songSelected,
     setSongSelected,
-    playlistSelected,
+    setPlaying,
     setPlaylistSelected,
     likedSongs,
     setLikedSongs,
@@ -66,6 +66,7 @@ const DisplaySongs = ({
       duration: song.duration,
     });
     setPlaylistSelected(data.filter((e, i) => i > indexOfSelectedSong));
+    setPlaying(true);
   };
 
   const handleAddSongToPlaylist = (song: any, id: string) => {

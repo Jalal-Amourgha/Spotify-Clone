@@ -1,6 +1,6 @@
 "use client";
 import { FaBars } from "react-icons/fa6";
-import { GoHomeFill, GoSearch } from "react-icons/go";
+import { GoHome, GoHomeFill, GoSearch } from "react-icons/go";
 import { FaSpotify } from "react-icons/fa";
 import { BiLibrary } from "react-icons/bi";
 import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
@@ -11,10 +11,25 @@ const FooterNav = () => {
   const pathname = usePathname();
 
   const footerLinks = [
-    { icon: <GoHomeFill />, href: "", label: "Home" },
-    { icon: <GoSearch />, href: "search", label: "Search" },
-    { icon: <BiLibrary />, href: "playlists", label: "Your Library" },
-    { icon: <IoIosHeartEmpty />, href: "collection", label: "Liked Songs" },
+    { icon: <GoHome />, icon2: <GoHomeFill />, href: "", label: "Home" },
+    {
+      icon: <GoSearch />,
+      icon2: <GoSearch />,
+      href: "search",
+      label: "Search",
+    },
+    {
+      icon: <BiLibrary />,
+      icon2: <BiLibrary />,
+      href: "playlists",
+      label: "Your Library",
+    },
+    {
+      icon: <IoIosHeartEmpty />,
+      icon2: <IoIosHeart />,
+      href: "collection",
+      label: "Liked Songs",
+    },
   ];
   return (
     <div className="block md:hidden sticky bottom-0 left-0 w-full z-[100] bg-black p-2  border-t-1 border-gray">
@@ -27,7 +42,9 @@ const FooterNav = () => {
             }`}
             key={item.label}
           >
-            <div className="text-2xl">{item.icon}</div>
+            <div className="text-2xl">
+              {pathname === `/${item.href}` ? item.icon2 : item.icon}
+            </div>
             <div className="text-base">{item.label}</div>
           </Link>
         ))}

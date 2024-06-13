@@ -16,21 +16,19 @@ import { FaPause, FaPlay } from "react-icons/fa6";
 
 const SongPlayer = () => {
   const {
-    data,
+    playing,
+    setPlaying,
     songSelected,
     handleNextSong,
-    handlePrevSong,
     isQueueOpen,
     setIsQueueOpen,
     playlistSelected,
-    setPlaylistSelected,
     setSongSelected,
     likedSongs,
     setLikedSongs,
   } = useAppContext();
   const [played, setPlayed] = useState(0);
   const [volume, setVolume] = useState(0.5); // Initial volume set to 50%
-  const [playing, setPlaying] = useState(true);
   const [muted, setMuted] = useState<boolean>(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0); // Total duration in seconds
@@ -85,6 +83,10 @@ const SongPlayer = () => {
     setLikedSongs([...likedSongs, song]);
   };
 
+  const handlePrevSong = () => {
+    playerRef.current.seekTo(0);
+  };
+
   return (
     <>
       {/* F O R - D E S K T O P */}
@@ -111,7 +113,7 @@ const SongPlayer = () => {
             </div>
           </div>
           <div className="flex flex-col gap-3 w-[500px] text-xl">
-            <div className="flex items-center justify-center text-gray   gap-3">
+            <div className="flex items-center justify-center text-gray  gap-5">
               <IoShuffle className="hover:text-white cursor-pointer" />
               <IoPlaySkipBack
                 className="hover:text-white cursor-pointer"
@@ -176,7 +178,6 @@ const SongPlayer = () => {
             </div>
           </div>
           <div className="flex items-center text-xl text-gray gap-3">
-            <TbMicrophone2 className="hover:text-primary cursor-pointer" />
             <BsMenuUp
               className={`${
                 isQueueOpen ? "text-primary" : ""

@@ -1,5 +1,6 @@
 "use client";
 
+import { fetchData } from "@/app/actions/fetchData";
 import { DataProps, DataSongProps, PlaylistProps, SongProps } from "@/types";
 import { createContext, useContext, useState, useEffect } from "react";
 
@@ -24,6 +25,7 @@ export function AppWrapper({ children }: { children: React.ReactNode }) {
   const [playlistSelected, setPlaylistSelected] = useState<
     DataSongProps[] | any
   >();
+  const [playing, setPlaying] = useState(true);
   const [isQueueOpen, setIsQueueOpen] = useState<boolean>(false);
   const [search, setSearch] = useState<string>("");
   const [playlists, setPlaylists] = useState<any[]>([]);
@@ -34,16 +36,9 @@ export function AppWrapper({ children }: { children: React.ReactNode }) {
     id: "",
   });
 
-  const fetchData = async () => {
-    const data = await fetch(
-      `https://gist.githubusercontent.com/Jalal-Amourgha/d8c8800caffcbb90a10e5ccfda114a1a/raw/85ee618e85d122857db67f86b0c12418256e5a2c/_data`
-    );
-    const res = await data.json();
-
-    return setData(res);
-  };
-
   useEffect(() => {
+    fetchData().then((res) => setData(res));
+
     const savedData = JSON.parse(localStorage.getItem("spotify-clone") || "{}");
     setLikedSongs(savedData.likedSongs || []);
     setPlaylists(savedData.playlists || []);
@@ -53,10 +48,6 @@ export function AppWrapper({ children }: { children: React.ReactNode }) {
     }, 1000);
 
     return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    fetchData();
   }, []);
 
   useEffect(() => {
@@ -87,30 +78,13 @@ export function AppWrapper({ children }: { children: React.ReactNode }) {
         img: playlistSelected[playingSongIndex + 1].img,
         duration: playlistSelected[playingSongIndex + 1].duration,
       });
-    }
-  };
 
-  const handlePrevSong = () => {
-    // find index of playing song
-    var playingSongIndex = playlistSelected.findIndex(
-      (item: DataSongProps) => item.url === songSelected.url
-    );
-    if (playingSongIndex === playlistSelected.length - 1) {
-      setSongSelected({
-        url: playlistSelected[0].url,
-        artist: playlistSelected[0].artist,
-        name: playlistSelected[0].name,
-        img: playlistSelected[0].img,
-        duration: playlistSelected[0].duration,
-      });
-    } else {
-      setSongSelected({
-        url: playlistSelected[playingSongIndex - 1].url,
-        artist: playlistSelected[playingSongIndex - 1].artist,
-        name: playlistSelected[playingSongIndex - 1].name,
-        img: playlistSelected[playingSongIndex - 1].img,
-        duration: playlistSelected[playingSongIndex - 1].duration,
-      });
+      setPlaylistSelected(
+        playlistSelected.filter(
+          (e: DataSongProps, i: number) => i > playingSongIndex
+        )
+      );
+      setPlaying(true);
     }
   };
 
@@ -118,6 +92,8 @@ export function AppWrapper({ children }: { children: React.ReactNode }) {
     <AppContext.Provider
       value={{
         data,
+        playing,
+        setPlaying,
         songSelected,
         setSongSelected,
         playlistSelected,
@@ -125,7 +101,7 @@ export function AppWrapper({ children }: { children: React.ReactNode }) {
         scrollHeight,
         setScrollHeight,
         handleNextSong,
-        handlePrevSong,
+
         isQueueOpen,
         setIsQueueOpen,
         search,

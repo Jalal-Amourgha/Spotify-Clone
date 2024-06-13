@@ -1,17 +1,12 @@
 "use client";
 import { useAppContext } from "@/context";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 import { IoSearchOutline } from "react-icons/io5";
 import { FaBars } from "react-icons/fa6";
-import { GoHomeFill, GoSearch } from "react-icons/go";
-import { FaSpotify } from "react-icons/fa";
 
-const links = [
-  { icon: <GoHomeFill />, href: "", label: "Home" },
-  { icon: <GoSearch />, href: "search", label: "Search" },
-];
+import { FaSpotify } from "react-icons/fa";
 
 export default function Nav() {
   const { scrollHeight, search, setSearch } = useAppContext();

@@ -4,13 +4,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { GoHomeFill, GoSearch } from "react-icons/go";
+import { GoHome, GoHomeFill, GoSearch } from "react-icons/go";
 
 const links = [
-  { icon: <GoHomeFill />, href: "", label: "Home" },
-  { icon: <GoSearch />, href: "search", label: "Search" },
+  { icon1: <GoHome />, icon2: <GoHomeFill />, href: "", label: "Home" },
+  { icon1: <GoSearch />, icon2: <GoSearch />, href: "search", label: "Search" },
 ];
-
 const Sidebar = () => {
   const pathname = usePathname();
 
@@ -24,7 +23,7 @@ const Sidebar = () => {
           }`}
           key={item.label}
         >
-          <div>{item.icon}</div>
+          <div>{pathname === `/${item.href}` ? item.icon2 : item.icon1}</div>
           <div className="hidden lg:block text-lg">{item.label}</div>
         </Link>
       ))}

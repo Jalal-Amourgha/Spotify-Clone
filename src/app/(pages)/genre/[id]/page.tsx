@@ -16,7 +16,7 @@ const GnerePage = ({ params }: PageProps) => {
   const [loading, setLoading] = useState(false);
 
   const [categorySelected, setCategorySelected] = useState({ color: "" });
-  const [categorySelectedSongs, setCaategorySelectedSongs] = useState([]);
+  const [categorySelectedSongs, setCategorySelectedSongs] = useState([]);
 
   useEffect(() => {
     if (params.id && data.albums.length > 1) {
@@ -28,7 +28,7 @@ const GnerePage = ({ params }: PageProps) => {
             params.id.replaceAll(" ", "").toLowerCase()
         )[0]
       );
-      setCaategorySelectedSongs(
+      setCategorySelectedSongs(
         data.data.filter((song: any) => song.genre.includes(params.id))
       );
     }
