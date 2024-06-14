@@ -49,7 +49,7 @@ const Queue = () => {
         </div>
       </div>
       <div className="mt-10">
-        <h1>Next from : This Playlist</h1>
+        {playlistSelected.length > 0 && <h1>Next from : This Playlist</h1>}
         <div className="flex flex-col gap-4 mt-3">
           {playlistSelected &&
             playlistSelected.map((song: DataSongProps, index: number) =>

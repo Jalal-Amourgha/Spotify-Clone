@@ -13,7 +13,8 @@ import { useAppContext } from "@/context";
 import { SongProps } from "@/types";
 import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
 import { FaPause, FaPlay } from "react-icons/fa6";
-
+import { usePathname, useRouter } from "next/navigation";
+import { RiVideoLine } from "react-icons/ri";
 const SongPlayer = () => {
   const {
     playing,
@@ -33,6 +34,8 @@ const SongPlayer = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0); // Total duration in seconds
   const playerRef: any = useRef(null);
+  const pathname = usePathname();
+  const router = useRouter();
 
   const handleProgress = (state: any) => {
     setPlayed(state.played);
@@ -112,7 +115,7 @@ const SongPlayer = () => {
               <p className="text-gray">{songSelected.artist}</p>
             </div>
           </div>
-          <div className="flex flex-col gap-3 w-[500px] text-xl">
+          <div className="flex flex-col gap-3 w-[700px] text-xl">
             <div className="flex items-center justify-center text-gray  gap-5">
               <IoShuffle className="hover:text-white cursor-pointer" />
               <IoPlaySkipBack
@@ -178,6 +181,13 @@ const SongPlayer = () => {
             </div>
           </div>
           <div className="flex items-center text-xl text-gray gap-3">
+            <TbMicrophone2
+              className={`${
+                pathname === "/lyrics" ? "text-primary" : ""
+              } hover:text-primary cursor-pointer`}
+              onClick={() => router.push("/lyrics")}
+            />
+
             <BsMenuUp
               className={`${
                 isQueueOpen ? "text-primary" : ""

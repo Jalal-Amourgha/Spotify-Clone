@@ -53,7 +53,7 @@ const App = ({
       <div
         className={`h-screen grid  ${
           isQueueOpen
-            ? "grid-cols-[100%] lg:grid-cols-[360px_auto_300px]"
+            ? "grid-cols-[100%] lg:grid-cols-[360px_auto_360px]"
             : "grid-cols-[100%] lg:grid-cols-[360px_auto_0px]"
         } 
             gap-2`}
