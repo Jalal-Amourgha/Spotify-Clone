@@ -1,15 +1,12 @@
-"use client";
-
-import { playlistImg } from "@/assets/icons";
-import { useAppContext } from "@/context";
-import { PlaylistProps } from "@/types";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { GoDotFill } from "react-icons/go";
+import { useAppContext } from "../context";
+import { useNavigate } from "react-router-dom";
+import { PlaylistProps } from "../types";
+import { playlistImg } from "../assets/icons";
 
-const PlaylistsPage = () => {
+const Playlists = () => {
   const { playlists } = useAppContext();
-  const router = useRouter();
+  const navigate = useNavigate();
 
   return (
     <div className="mt-100 mx-5">
@@ -23,11 +20,11 @@ const PlaylistsPage = () => {
           playlists.map((playlist: PlaylistProps, index: number) => (
             <div
               className="flex items-center gap-2"
-              onClick={() => router.push(`/playlist/${playlist.id}`)}
+              onClick={() => navigate(`/playlist/${playlist.id}`)}
               key={index}
             >
               <div>
-                <Image
+                <img
                   src={playlistImg}
                   height={60}
                   width={60}
@@ -54,4 +51,4 @@ const PlaylistsPage = () => {
   );
 };
 
-export default PlaylistsPage;
+export default Playlists;

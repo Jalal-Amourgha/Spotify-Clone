@@ -7,22 +7,21 @@ import { SlVolumeOff, SlVolume1, SlVolume2 } from "react-icons/sl";
 import { RxLoop } from "react-icons/rx";
 import { IoShuffle, IoPlaySkipForward, IoPlaySkipBack } from "react-icons/io5";
 import { TbMicrophone2 } from "react-icons/tb";
-import { BsMenuUp } from "react-icons/bs";
-import Image from "next/image";
-import { useAppContext } from "@/context";
-import { SongProps } from "@/types";
 import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
 import { FaPause, FaPlay } from "react-icons/fa6";
-import { usePathname, useRouter } from "next/navigation";
+import { LuMenuSquare } from "react-icons/lu";
 import { RiVideoLine } from "react-icons/ri";
+import { SongProps } from "../types";
+import { useAppContext } from "../context";
+import { useLocation, useNavigate } from "react-router-dom";
 const SongPlayer = () => {
   const {
     playing,
     setPlaying,
     songSelected,
     handleNextSong,
-    isQueueOpen,
-    setIsQueueOpen,
+    songProps,
+    setSongProps,
     playlistSelected,
     setSongSelected,
     likedSongs,
@@ -34,8 +33,8 @@ const SongPlayer = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0); // Total duration in seconds
   const playerRef: any = useRef(null);
-  const pathname = usePathname();
-  const router = useRouter();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleProgress = (state: any) => {
     setPlayed(state.played);
@@ -98,7 +97,7 @@ const SongPlayer = () => {
           <div className="flex flex-row items-center gap-2">
             <div>
               {songSelected && (
-                <Image
+                <img
                   src={`${songSelected.img}`}
                   height={60}
                   width={60}
@@ -113,7 +112,7 @@ const SongPlayer = () => {
                 className="text-lg font-semibold hover:text-primary cursor-pointer"
                 onClick={(e) => {
                   e.stopPropagation();
-                  router.push(
+                  navigate(
                     `/song/${songSelected.name
                       .toLowerCase()
                       .replaceAll(" ", "")}`
@@ -191,18 +190,34 @@ const SongPlayer = () => {
             </div>
           </div>
           <div className="flex items-center text-xl text-gray gap-3">
+            <RiVideoLine
+              className={`${
+                songProps.playing ? "text-primary" : ""
+              } hover:text-primary cursor-pointer`}
+              onClick={() =>
+                setSongProps({
+                  queue: false,
+                  playing: !songProps.playing,
+                })
+              }
+            />
             <TbMicrophone2
               className={`${
-                pathname === "/lyrics" ? "text-primary" : ""
+                location.pathname === "/lyrics" ? "text-primary" : ""
               } hover:text-primary cursor-pointer`}
-              onClick={() => router.push("/lyrics")}
+              onClick={() => navigate("/lyrics")}
             />
 
-            <BsMenuUp
+            <LuMenuSquare
               className={`${
-                isQueueOpen ? "text-primary" : ""
+                songProps.queue ? "text-primary" : ""
               } hover:text-primary cursor-pointer`}
-              onClick={() => setIsQueueOpen(!isQueueOpen)}
+              onClick={() =>
+                setSongProps({
+                  queue: !songProps.queue,
+                  playing: false,
+                })
+              }
             />
             <div onClick={() => setMuted(!muted)}>
               {volume === 0 || muted ? (
@@ -234,7 +249,7 @@ const SongPlayer = () => {
       <div className="block md:hidden sticky bottom-[64px] left-0 z-[100] bg-black w-full p-2 rounded-t-lg">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-2">
-            <Image
+            <img
               src={`${songSelected.img}`}
               height={40}
               width={40}

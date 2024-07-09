@@ -1,8 +1,5 @@
-"use client";
-
-import { Loader } from "@/components";
-import HomeComponents from "@/components/HomeComponents";
-import { useAppContext } from "@/context";
+import { HomeComponents, Loader } from "../components";
+import { useAppContext } from "../context";
 
 export default function Home() {
   const { data } = useAppContext();
@@ -29,7 +26,7 @@ export default function Home() {
             title="Featured Charts"
             rounded={false}
             displayHome
-            route="charts"
+            route="chart"
             showBtn={false}
           />
         </>

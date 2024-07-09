@@ -1,9 +1,7 @@
-"use client";
+import { HomeComponents } from "../components";
+import { useAppContext } from "../context";
 
-import HomeComponents from "@/components/HomeComponents";
-import { useAppContext } from "@/context";
-
-const ArtistsPage = () => {
+const Artists = () => {
   const { data } = useAppContext();
   return (
     <>
@@ -20,4 +18,4 @@ const ArtistsPage = () => {
   );
 };
 
-export default ArtistsPage;
+export default Artists;

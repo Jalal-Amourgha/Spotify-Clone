@@ -1,7 +1,5 @@
-"use client";
-
-import { footerLinks } from "@/constants";
 import { FaInstagram, FaTwitter, FaFacebook } from "react-icons/fa";
+import { footerLinks } from "../constants";
 
 const Footer = () => {
   const socials = [

@@ -1,19 +1,20 @@
-"use client";
-
-import { Background, BackgroundInfo, DisplaySongs, Loader } from "@/components";
-import { useAppContext } from "@/context";
-import { DataSongProps, FeaturedChartsProps } from "@/types";
 import { useEffect, useState } from "react";
+import { useAppContext } from "../context";
 
-interface ChartsPageProps {
-  params: {
-    country: string;
-  };
-}
-const ChartPage = ({ params }: ChartsPageProps) => {
+import {
+  Background,
+  BackgroundInfo,
+  DisplaySongs,
+  Loader,
+} from "../components";
+import { FeaturedChartsProps } from "../types";
+import { useParams } from "react-router-dom";
+
+const Chart = () => {
+  const { id }: any = useParams();
   const { data } = useAppContext();
 
-  const [selectedChart, setSelectedChart] = useState({
+  const [selectedChart, setSelectedChart] = useState<any>({
     name: "",
     color: "",
     img: "",
@@ -23,21 +24,21 @@ const ChartPage = ({ params }: ChartsPageProps) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (params.country && data.featuredCharts.length > 1) {
+    if (id && data.featuredCharts.length > 1) {
       setLoading(true);
       setSelectedChart(
         data.featuredCharts.filter(
           (chart: FeaturedChartsProps) =>
             chart.name.replaceAll(" ", "").toLocaleLowerCase() ===
-            params.country.replaceAll(" ", "").toLocaleLowerCase()
+            id.replaceAll(" ", "").toLocaleLowerCase()
         )[0]
       );
     }
-  }, [params.country, data]);
+  }, [id, data]);
 
   useEffect(() => {
     setSelectedChartSongs(
-      data.data.filter((song: DataSongProps) =>
+      data.data.filter((song: any) =>
         song.charts?.includes(
           selectedChart.name.replaceAll(" ", "").replace("-", "").toLowerCase()
         )
@@ -69,4 +70,4 @@ const ChartPage = ({ params }: ChartsPageProps) => {
   );
 };
 
-export default ChartPage;
+export default Chart;

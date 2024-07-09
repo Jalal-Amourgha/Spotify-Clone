@@ -1,23 +1,17 @@
-"use client";
-
-import { useAppContext } from "@/context";
-import { FC, useEffect, useState, useRef } from "react";
-import { ArtistsProps, DataSongProps, SongProps } from "@/types";
+import { useEffect, useState } from "react";
+import { useAppContext } from "../context";
+import { useParams } from "react-router-dom";
+import { ArtistsProps, DataSongProps } from "../types";
 import {
   Background,
   BackgroundInfo,
   DisplaySongs,
-  Loader,
   HomeComponents,
-} from "@/components";
+  Loader,
+} from "../components";
 
-interface PageProps {
-  params: {
-    name: string;
-  };
-}
-
-const ArtistPage: FC<PageProps> = ({ params }) => {
+const ArtistPage = () => {
+  const { id } = useParams();
   const { data } = useAppContext();
   const [loading, setLoading] = useState(false);
   const [artistInfo, setArtistInfo] = useState({ name: "", img: "" });
@@ -25,24 +19,22 @@ const ArtistPage: FC<PageProps> = ({ params }) => {
   const [listeners, setListeners] = useState(5946);
 
   useEffect(() => {
-    if (params.name && data.albums.length > 1) {
+    if (id && data.albums.length > 1) {
       setLoading(true);
       setArtistInfo(
         data.artists.filter(
           (artist: ArtistsProps) =>
-            artist.name.replaceAll(" ", "").toLowerCase() ===
-            params.name.toLowerCase()
+            artist.name.replaceAll(" ", "").toLowerCase() === id.toLowerCase()
         )[0]
       );
       setArtistSongs(
         data.data.filter(
           (artist: DataSongProps) =>
-            artist.artist.replaceAll(" ", "").toLowerCase() ===
-            params.name.toLowerCase()
+            artist.artist.replaceAll(" ", "").toLowerCase() === id.toLowerCase()
         )
       );
     }
-  }, [params.name, data]);
+  }, [id, data]);
 
   if (!loading) {
     return <Loader />;
@@ -70,16 +62,6 @@ const ArtistPage: FC<PageProps> = ({ params }) => {
 
       {/* Display Artist Songs*/}
       <DisplaySongs data={artistSongs} album plays />
-
-      {/* Song Play Btn */}
-      {/* <div className="flex items-center gap-5">
-        <div className="text-5xl text-primary ml-8 my-5 cursor-pointer">
-          {playing ? <FaPlayCircle /> : <FaPauseCircle />}
-        </div>
-        <button className="bg-inherit py-2 px-4 border-1 border-white rounded-full text-xl">
-          Follow
-        </button>
-      </div> */}
 
       {/* List of Artist Songs */}
 

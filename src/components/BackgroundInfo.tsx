@@ -1,13 +1,10 @@
-"use client";
-
-import Image, { StaticImageData } from "next/image";
-import { verifiedIcon } from "@/assets/icons";
+import { verifiedIcon } from "../assets/icons";
 
 interface BackgroundInfoProps {
   type?: string;
   title?: string;
   description?: string;
-  img?: string | StaticImageData;
+  img?: string;
   verified?: boolean;
   rounded?: boolean;
 }
@@ -24,7 +21,7 @@ const BackgroundInfo = ({
     <div className="flex flex-col md:flex-row md:items-center relative z-10 gap-5 w-full mx-1 md:mx-5 mt-10 md:mt-100 mb-10">
       <div>
         {img && (
-          <Image
+          <img
             src={img}
             height={200}
             width={200}
@@ -39,7 +36,7 @@ const BackgroundInfo = ({
       <div className="text-left text-white">
         {verified ? (
           <div className="flex items-center gap-2">
-            <Image
+            <img
               src={verifiedIcon}
               height={30}
               width={30}

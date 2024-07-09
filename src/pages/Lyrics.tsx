@@ -1,16 +1,15 @@
-"use client";
-
-import { useAppContext } from "@/context";
-import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { PiCursor, PiCursorClickFill } from "react-icons/pi";
+import { useAppContext } from "../context";
+import { useLocation } from "react-router-dom";
 
-export default function Home() {
+const Lyrics = () => {
+  const location = useLocation();
+
   const { songSelected } = useAppContext();
   const [lyrics, setLyrics] = useState<any>("");
-  const [error, setError] = useState("");
-  const pathname = usePathname();
+
   const [hoveredIndex, setHoveredIndex] = useState(-1);
   const [changeMode, setChangeMode] = useState(false);
 
@@ -25,18 +24,16 @@ export default function Home() {
       const data = await response.json();
       const introPhrase = `Paroles de la chanson ${songSelected.name} par ${songSelected.artist}`;
       setLyrics(data.lyrics.replace(introPhrase, "").split(" "));
-      setError("");
     } catch (error) {
-      setError("Failed to fetch lyrics");
       setLyrics("");
     }
   };
 
   useEffect(() => {
-    if (pathname === "/lyrics") {
+    if (location.pathname === "/lyrics") {
       fetchLyrics();
     }
-  }, [pathname]);
+  }, [location.pathname]);
 
   return (
     <>
@@ -73,4 +70,6 @@ export default function Home() {
       </div>
     </>
   );
-}
+};
+
+export default Lyrics;

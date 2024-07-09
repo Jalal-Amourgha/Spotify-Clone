@@ -1,6 +1,4 @@
-"use client";
-
-import { useAppContext } from "@/context";
+import { useAppContext } from "../context";
 
 const Playlists = ({ song }: { song: any }) => {
   const { playlists, setPlaylists } = useAppContext();

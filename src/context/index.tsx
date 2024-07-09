@@ -1,8 +1,8 @@
 "use client";
 
-import { Data } from "@/constants/_data";
-import { DataSongProps, SongProps } from "@/types";
 import { createContext, useContext, useState, useEffect } from "react";
+import { Data } from "../constants/_data";
+import { DataSongProps, SongProps } from "../types";
 
 const AppContext = createContext<any>(undefined);
 
@@ -20,7 +20,7 @@ export function AppWrapper({ children }: { children: React.ReactNode }) {
     DataSongProps[] | any
   >();
   const [playing, setPlaying] = useState(true);
-  const [isQueueOpen, setIsQueueOpen] = useState<boolean>(false);
+  const [songProps, setSongProps] = useState({ queue: false, playing: false });
   const [search, setSearch] = useState<string>("");
   const [playlists, setPlaylists] = useState<any[]>([]);
   const [likedSongs, setLikedSongs] = useState<any[]>([]);
@@ -94,8 +94,8 @@ export function AppWrapper({ children }: { children: React.ReactNode }) {
         setScrollHeight,
         handleNextSong,
 
-        isQueueOpen,
-        setIsQueueOpen,
+        songProps,
+        setSongProps,
         search,
         setSearch,
         likedSongs,

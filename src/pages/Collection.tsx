@@ -1,10 +1,8 @@
-"use client";
+import { likedSongsImg } from "../assets/icons";
+import { Background, BackgroundInfo, DisplaySongs } from "../components";
+import { useAppContext } from "../context";
 
-import { likedSongsImg } from "@/assets/icons";
-import { Background, BackgroundInfo, DisplaySongs } from "@/components";
-import { useAppContext } from "@/context";
-
-const CollectionPage = () => {
+const Collection = () => {
   const { likedSongs } = useAppContext();
 
   return (
@@ -27,4 +25,4 @@ const CollectionPage = () => {
   );
 };
 
-export default CollectionPage;
+export default Collection;

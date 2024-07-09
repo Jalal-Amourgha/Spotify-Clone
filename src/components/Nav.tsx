@@ -1,44 +1,42 @@
-"use client";
-import { useAppContext } from "@/context";
-import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 import { IoSearchOutline } from "react-icons/io5";
 import { FaBars } from "react-icons/fa6";
 import { FaSpotify } from "react-icons/fa";
+import { useAppContext } from "../context";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Nav() {
   const { scrollHeight, search, setSearch } = useAppContext();
 
-  const pathname = usePathname();
-  const router = useRouter();
+  const location = useLocation();
+  const navigate = useNavigate();
   const [isNavOpen, setIsNavOpen] = useState(true);
 
   return (
     <>
       <div
-        className={`sticky top-0 left-0 z-50  ${
-          scrollHeight > 150 || pathname === "/search"
-            ? "bg-neutral-900 "
-            : "bg-opacity-0 bg-inherit"
-        }  w-full  p-2 text-lg`}
+        className={`sticky top-0 left-0 z-50 
+           ${scrollHeight > 150 ? "bg-neutral-900 " : "bg-opacity-0 bg-inherit"}
+        
+        w-full  p-2 text-lg`}
       >
         {/* N A V - D E S K T O P */}
         <nav className="hidden lg:flex items-center justify-between">
           <div className="flex flex-row gap-3">
             <div
               className="h-10 w-10 flex justify-center items-center bg-black rounded-full text-xl cursor-pointer"
-              onClick={() => router.back()}
+              onClick={() => navigate(-1)}
             >
               <SlArrowLeft />
             </div>
             <div
               className="h-10 w-10 flex justify-center items-center bg-black rounded-full text-xl cursor-pointer"
-              onClick={() => router.forward()}
+              onClick={() => navigate(1)}
             >
               <SlArrowRight />
             </div>
-            {pathname === "/search" ? (
+            {location.pathname === "/search" ? (
               <div className="relative">
                 <div className="absolute top-3 left-3 text-xl text-gray">
                   <IoSearchOutline />
@@ -67,8 +65,8 @@ export default function Nav() {
         {/* N A V - P H O N E S */}
         <nav className="flex justify-between items-center lg:hidden py-2">
           <FaSpotify
-            className="text-3xl text-white "
-            onClick={() => router.push("/")}
+            className="text-3xl text-white hover:text-primary cursor-pointer"
+            onClick={() => navigate("/")}
           />
           <div className="flex items-center gap-4">
             <IoSearchOutline className="text-xl cursor-pointer" />

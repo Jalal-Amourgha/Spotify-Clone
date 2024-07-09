@@ -1,15 +1,13 @@
-"use client";
-
-import { useAppContext } from "@/context";
-import { SongProps } from "@/types";
-import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BsThreeDots } from "react-icons/bs";
 import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
 import { LuClock3 } from "react-icons/lu";
 import { format } from "date-fns";
-import { useRouter } from "next/navigation";
+import { IoPlay } from "react-icons/io5";
 import Playlists from "./Playlists";
+import { useAppContext } from "../context";
+import { SongProps } from "../types";
+import { useNavigate } from "react-router-dom";
 
 interface DisplaySongsProps {
   data: any[];
@@ -31,8 +29,6 @@ const DisplaySongs = ({
     setPlaylistSelected,
     likedSongs,
     setLikedSongs,
-    playlists,
-    setPlaylists,
   } = useAppContext();
 
   const [hovered, setHovered] = useState(-1);
@@ -40,7 +36,7 @@ const DisplaySongs = ({
     index: -1,
     show: false,
   });
-  const router = useRouter();
+  const navigate = useNavigate();
 
   const handleAddedIn = (date: string) => {
     return format(new Date(date), "MMM d, yyyy");
@@ -106,12 +102,14 @@ const DisplaySongs = ({
                     <span className="text-xl text-gray w-5">
                       {songSelected.url === song.url ? (
                         <div className="playing"></div>
+                      ) : hovered === index ? (
+                        <IoPlay className="text-xl hover:text-primary cursor-pointer" />
                       ) : (
                         index + 1
                       )}
                     </span>
                     <div>
-                      <Image
+                      <img
                         src={song.img}
                         width={50}
                         height={50}
@@ -128,7 +126,7 @@ const DisplaySongs = ({
                         } hover:underline hover:text-primary`}
                         onClick={(e) => {
                           e.stopPropagation();
-                          router.push(
+                          navigate(
                             `/song/${song.name
                               .toLowerCase()
                               .replaceAll(" ", "")}`
@@ -150,7 +148,7 @@ const DisplaySongs = ({
                     )}
                     {album && <p>{song.album}</p>}
                     {date && <p>{handleAddedIn(song.added_in)}</p>}
-                    <div className="absolute right-20 top-4 z-10 text-xl">
+                    <div className="absolute right-20 top-5 z-10 text-xl">
                       {likedSongs[
                         likedSongs.findIndex(
                           (item: any) => item.name === song.name
@@ -231,7 +229,7 @@ const DisplaySongs = ({
             key={index}
           >
             <div className="flex items-center gap-2">
-              <Image
+              <img
                 src={song.img}
                 height={40}
                 width={40}

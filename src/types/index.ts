@@ -1,7 +1,5 @@
-import { StaticImageData } from "next/image";
-
 export interface ArtistsProps {
-  name: String;
+  name: any;
   img: String;
 }
 
@@ -9,15 +7,15 @@ export interface SongProps {
   url: String;
   artist?: String;
   album?: String;
-  name?: String | undefined;
-  img?: String | undefined | StaticImageData;
+  name?: any;
+  img?: String | undefined;
   duration?: String | undefined;
   charts?: string[];
 }
 
 export interface AlbumProps {
   artist: String;
-  name: String;
+  name: any;
   artist_img?: String;
   img: String;
   songs?: String;
@@ -27,9 +25,9 @@ export interface AlbumProps {
 
 export interface DataSongProps {
   url: String;
-  artist: String;
+  artist: any;
   name: String;
-  img: StaticImageData;
+  img: string;
   album?: String;
   views?: String;
   genre?: String[];
@@ -40,15 +38,16 @@ export interface DataSongProps {
 
 export interface CategoriesProps {
   color: String;
-  img: String | StaticImageData;
+  img: String;
   name: String;
 }
 
 export interface FeaturedChartsProps {
   img: String;
   artist: String;
-  name: String;
+  name: any;
   color: String;
+  country: any;
 }
 export interface PlaylistProps {
   name: String;

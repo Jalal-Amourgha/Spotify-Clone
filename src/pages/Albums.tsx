@@ -1,9 +1,7 @@
-"use client";
+import { HomeComponents } from "../components";
+import { useAppContext } from "../context";
 
-import HomeComponents from "@/components/HomeComponents";
-import { useAppContext } from "@/context";
-
-const AlbumsPage = () => {
+const Albums = () => {
   const { data } = useAppContext();
   return (
     <>
@@ -19,4 +17,4 @@ const AlbumsPage = () => {
   );
 };
 
-export default AlbumsPage;
+export default Albums;

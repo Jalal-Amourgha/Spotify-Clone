@@ -1,24 +1,24 @@
-"use client";
-
+import { useEffect, useState } from "react";
+import { FaCirclePlay, FaCirclePause, FaCircleCheck } from "react-icons/fa6";
+import { FiPlusCircle } from "react-icons/fi";
+import { RxDotsHorizontal } from "react-icons/rx";
+import { useAppContext } from "../context";
+import { SongProps } from "../types";
 import {
   Background,
   BackgroundInfo,
   DisplaySongs,
   Playlists,
-} from "@/components";
-import { useAppContext } from "@/context";
-import { SongProps } from "@/types";
-import { useEffect, useState } from "react";
-import { FaCirclePlay, FaCirclePause, FaCircleCheck } from "react-icons/fa6";
-import { FiPlusCircle } from "react-icons/fi";
-import { RxDotsHorizontal } from "react-icons/rx";
+} from "../components";
+import { useParams } from "react-router-dom";
 interface SongPageProps {
   params: {
     id: string;
   };
 }
 
-const SongPage = ({ params }: SongPageProps) => {
+const Song = () => {
+  const { id }: any = useParams();
   const {
     data,
     playing,
@@ -34,15 +34,15 @@ const SongPage = ({ params }: SongPageProps) => {
   const [addToPlaylist, setAddToPlaylist] = useState(false);
 
   useEffect(() => {
-    if (params.id && data) {
+    if (id && data) {
       setSelectedSong(
         data.data.find(
           (song: SongProps) =>
-            song.name?.toLowerCase().replaceAll(" ", "") === params.id
+            song.name?.toLowerCase().replaceAll(" ", "") === id
         )
       );
     }
-  }, [params.id, data]);
+  }, [id, data]);
 
   const addToList = () => {
     selectedSong.added_in = new Date().toString();
@@ -130,4 +130,4 @@ const SongPage = ({ params }: SongPageProps) => {
   );
 };
 
-export default SongPage;
+export default Song;

@@ -1,13 +1,10 @@
-"use client";
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FaPlayCircle } from "react-icons/fa";
-import React from "react";
+
 import Slider from "react-slick";
+import { useLocation, useNavigate } from "react-router-dom";
 
 interface HomeComponentsProps {
   data: any[];
@@ -33,14 +30,14 @@ const HomeComponents = ({
   showBtn = true,
 }: HomeComponentsProps) => {
   const [hovered, setHovered] = useState(-1);
-  const router = useRouter();
+  const navigate = useNavigate();
 
   var settings = {
     dots: true,
     infinite: true,
     arrows: false,
     speed: 500,
-    slidesToShow: 2,
+    slidesToShow: 1,
     slidesToScroll: 1,
   };
   return (
@@ -52,7 +49,7 @@ const HomeComponents = ({
           {!displayAll && showBtn ? (
             <span
               className="text-base font-medium text-gray cursor-pointer"
-              onClick={() => router.push(`/${route}`)}
+              onClick={() => navigate(`/${route}`)}
             >
               Show all
             </span>
@@ -69,14 +66,13 @@ const HomeComponents = ({
                 onMouseEnter={() => setHovered(index)}
                 onMouseLeave={() => setHovered(-1)}
                 onClick={() =>
-                  router.push(`/${route}/${item.name.replaceAll(" ", "")}`)
+                  navigate(`/${route}/${item.name.replaceAll(" ", "")}`)
                 }
                 key={item.name}
               >
                 <div className="w-full relative aspect-square">
-                  <Image
+                  <img
                     src={item.img}
-                    fill
                     sizes="100%"
                     className={`${rounded ? "rounded-full" : "rounded-lg"}`}
                     alt="img"
@@ -104,14 +100,13 @@ const HomeComponents = ({
                   onMouseEnter={() => setHovered(index)}
                   onMouseLeave={() => setHovered(-1)}
                   onClick={() =>
-                    router.push(`/${route}/${item.name.replaceAll(" ", "")}`)
+                    navigate(`/${route}/${item.name.replaceAll(" ", "")}`)
                   }
                   key={item.name}
                 >
                   <div className="w-full relative aspect-square">
-                    <Image
+                    <img
                       src={item.img}
-                      fill
                       sizes="100%"
                       className={`${rounded ? "rounded-full" : "rounded-lg"}`}
                       alt="img"
@@ -142,14 +137,13 @@ const HomeComponents = ({
                   onMouseEnter={() => setHovered(index)}
                   onMouseLeave={() => setHovered(-1)}
                   onClick={() =>
-                    router.push(`/${route}/${item.name.replaceAll(" ", "")}`)
+                    navigate(`/${route}/${item.name.replaceAll(" ", "")}`)
                   }
                   key={item.name}
                 >
                   <div className="w-full relative aspect-square">
-                    <Image
+                    <img
                       src={item.img}
-                      fill
                       sizes="100%"
                       className={`${rounded ? "rounded-full" : "rounded-lg"}`}
                       alt="img"
@@ -176,28 +170,27 @@ const HomeComponents = ({
 
       {/* Display Data For Phones */}
       <section className="block md:hidden my-100 mx-5">
-        <h1 className="text-2xl font-semibold mb-10">{title}</h1>
+        <h1 className="text-3xl font-bold mb-10">{title}</h1>
         <Slider {...settings}>
           {data.map((item, index) =>
             index < 6 ? (
               <div
                 className="flex flex-col cursor-pointer"
                 onClick={() =>
-                  router.push(`/${route}/${item.name.replaceAll(" ", "")}`)
+                  navigate(`/${route}/${item.name.replaceAll(" ", "")}`)
                 }
                 key={index}
               >
                 <div className="w-full relative aspect-square">
-                  <Image
+                  <img
                     src={item.img}
-                    fill
                     sizes="100%"
                     className={`${rounded ? "rounded-full" : "rounded-lg"}`}
                     alt="img"
                   />
                 </div>
 
-                <h1 className="text-lg font-medium mt-2">{item.name}</h1>
+                <h1 className="text-2xl font-semibold mt-3">{item.name}</h1>
               </div>
             ) : (
               ""

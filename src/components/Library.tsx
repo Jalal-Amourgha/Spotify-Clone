@@ -1,15 +1,13 @@
-"use client";
-import { likedSongsImg, playlistImg } from "@/assets/icons";
-import { useAppContext } from "@/context";
-import { PlaylistProps } from "@/types";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { BiLibrary } from "react-icons/bi";
 import { GoDotFill } from "react-icons/go";
 import { LuPlus } from "react-icons/lu";
+import { useAppContext } from "../context";
+import { likedSongsImg, playlistImg } from "../assets/icons";
+import { PlaylistProps } from "../types";
+import { useNavigate } from "react-router-dom";
 const Library = () => {
   const { playlists, setPlaylists, likedSongs } = useAppContext();
-  const router = useRouter();
+  const navigate = useNavigate();
   const createNewPlaylist = () => {
     setPlaylists([
       ...playlists,
@@ -38,10 +36,10 @@ const Library = () => {
       <div className="flex flex-col gap-3">
         <div
           className="flex items-center gap-4 cursor-pointer"
-          onClick={() => router.push("/collection")}
+          onClick={() => navigate("/collection")}
         >
           <div>
-            <Image
+            <img
               src={likedSongsImg}
               height={50}
               width={50}
@@ -61,11 +59,11 @@ const Library = () => {
         {playlists.map((playlist: PlaylistProps, index: number) => (
           <div
             className="flex items-center gap-3"
-            onClick={() => router.push(`/playlist/${playlist.id}`)}
+            onClick={() => navigate(`/playlist/${playlist.id}`)}
             key={index}
           >
             <div>
-              <Image
+              <img
                 src={playlistImg}
                 height={50}
                 width={50}

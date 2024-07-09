@@ -1,24 +1,16 @@
 "use client";
 
-import HomeComponents from "@/components/HomeComponents";
-import { useAppContext } from "@/context";
-import { AlbumProps, ArtistsProps, DataSongProps, SongProps } from "@/types";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaCircle, FaPlayCircle } from "react-icons/fa";
 import { IoSearchOutline } from "react-icons/io5";
+import { useAppContext } from "../context";
+import { HomeComponents } from "../components";
+import { AlbumProps, ArtistsProps, DataSongProps, SongProps } from "../types";
 
-const SearchPage = () => {
-  const {
-    data,
-    songSelected,
-    setSongSelected,
-    search,
-    setSearch,
-    setPlaylistSelected,
-  } = useAppContext();
-  const router = useRouter();
+const Search = () => {
+  const { data, songSelected, setSongSelected, search, setSearch } =
+    useAppContext();
+  // const router = useRouter();
   const [searchedArtists, setSearchedArtists] = useState<any>([]);
   const [searchedAlbums, setSearchedAlbums] = useState<any>([]);
   const [topResult, setTopResult] = useState<any>([]);
@@ -94,12 +86,12 @@ const SearchPage = () => {
               <div
                 className={`rounded-lg overflow-hidden p-3 h-40 cursor-pointer`}
                 style={{ background: `#${category.color}` }}
-                onClick={() => router.push(`/genre/${category.name}`)}
+                // onClick={() => router.push(`/genre/${category.name}`)}
                 key={index}
               >
                 <h1 className="text-xl font-medium">{category.name}</h1>
                 <div className="-m-5 rotate-[30deg]">
-                  <Image
+                  <img
                     src={category.img}
                     height={100}
                     width={100}
@@ -129,7 +121,7 @@ const SearchPage = () => {
                   onClick={() => playSong(topResult)}
                 >
                   <div className="mb-5">
-                    <Image
+                    <img
                       src={topResult.img}
                       height={100}
                       width={100}
@@ -172,7 +164,7 @@ const SearchPage = () => {
                       >
                         <div className="flex items-center gap-1">
                           <div>
-                            <Image
+                            <img
                               src={song.img}
                               height={40}
                               width={40}
@@ -244,4 +236,4 @@ const SearchPage = () => {
   );
 };
 
-export default SearchPage;
+export default Search;

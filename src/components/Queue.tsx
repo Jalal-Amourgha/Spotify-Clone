@@ -1,12 +1,9 @@
-"use client";
-
-import { useAppContext } from "@/context";
-import { DataSongProps, SongProps } from "@/types";
-import Image from "next/image";
 import { IoClose } from "react-icons/io5";
+import { useAppContext } from "../context";
+import { DataSongProps } from "../types";
 
 const Queue = () => {
-  const { songSelected, setSongSelected, playlistSelected, setIsQueueOpen } =
+  const { songSelected, setSongSelected, playlistSelected, setSongProps } =
     useAppContext();
 
   const playSong = (song: DataSongProps) => {
@@ -23,15 +20,17 @@ const Queue = () => {
     <div className="h-screen w-full bg-neutral-900 p-4 rounded-lg overflow-y-auto">
       <div className="flex justify-between items-center mb-10">
         <h1 className="text-xl font-medium">Queue</h1>
-        <div className="text-xl text-gray hover:text-white cursor-pointer">
-          <IoClose onClick={() => setIsQueueOpen(false)} />
+        <div className="text-2xl text-gray hover:text-white cursor-pointer">
+          <IoClose
+            onClick={() => setSongProps({ queue: false, playing: false })}
+          />
         </div>
       </div>
       <div>
         <h1>Now playing</h1>
         <div className="flex flex-row items-center gap-3 mt-3">
           <div>
-            <Image
+            <img
               src={songSelected.img}
               height={40}
               width={40}
@@ -60,7 +59,7 @@ const Queue = () => {
                   onClick={() => playSong(song)}
                 >
                   <div>
-                    <Image
+                    <img
                       src={song.img}
                       height={40}
                       width={40}

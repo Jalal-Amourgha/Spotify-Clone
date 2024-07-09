@@ -13,6 +13,7 @@ import SongPlayer from "./SongPlayer";
 import FooterNav from "./FooterNav";
 
 import Playlists from "./Playlists";
+import PlayingSong from "./PlayingSong";
 
 export {
   Background,
@@ -29,4 +30,5 @@ export {
   FooterNav,
   Footer,
   Playlists,
+  PlayingSong,
 };

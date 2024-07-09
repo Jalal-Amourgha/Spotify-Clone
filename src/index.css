@@ -27,6 +27,10 @@ html {
   border-radius: 8px;
 }
 
+body {
+  overflow: hidden;
+}
+
 .playing {
   width: 15px;
   aspect-ratio: 1;

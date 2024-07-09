@@ -1,14 +1,11 @@
-"use client";
-import { FaBars } from "react-icons/fa6";
 import { GoHome, GoHomeFill, GoSearch } from "react-icons/go";
-import { FaSpotify } from "react-icons/fa";
+
 import { BiLibrary } from "react-icons/bi";
 import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link, useLocation } from "react-router-dom";
 
 const FooterNav = () => {
-  const pathname = usePathname();
+  const location = useLocation();
 
   const footerLinks = [
     { icon: <GoHome />, icon2: <GoHomeFill />, href: "", label: "Home" },
@@ -21,7 +18,7 @@ const FooterNav = () => {
     {
       icon: <BiLibrary />,
       icon2: <BiLibrary />,
-      href: "playlist",
+      href: "playlists",
       label: "Your Library",
     },
     {
@@ -36,14 +33,14 @@ const FooterNav = () => {
       <div className="flex justify-between items-center">
         {footerLinks.map((item) => (
           <Link
-            href={`/${item.href}`}
+            to={`/${item.href}`}
             className={`flex flex-col items-center text-gray ${
-              pathname === `/${item.href}` ? "text-white" : "text-gray"
+              location.pathname === `/${item.href}` ? "text-white" : "text-gray"
             }`}
             key={item.label}
           >
             <div className="text-2xl">
-              {pathname === `/${item.href}` ? item.icon2 : item.icon}
+              {location.pathname === `/${item.href}` ? item.icon2 : item.icon}
             </div>
             <div className="text-base">{item.label}</div>
           </Link>
