@@ -7,7 +7,8 @@ import { DataSongProps, SongProps } from "../types";
 const AppContext = createContext<any>(undefined);
 
 export function AppWrapper({ children }: { children: React.ReactNode }) {
-  const [data, setData] = useState<any>({});
+  const data = Data;
+
   const [scrollHeight, setScrollHeight] = useState<number>(0);
   const [songSelected, setSongSelected] = useState<SongProps>({
     url: "",
@@ -31,7 +32,6 @@ export function AppWrapper({ children }: { children: React.ReactNode }) {
   });
 
   useEffect(() => {
-    setData(Data);
     const savedData = JSON.parse(localStorage.getItem("spotify-clone") || "{}");
     setLikedSongs(savedData.likedSongs || []);
     setPlaylists(savedData.playlists || []);
