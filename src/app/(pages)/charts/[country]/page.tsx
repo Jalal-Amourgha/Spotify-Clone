@@ -52,7 +52,7 @@ const ChartPage = ({ params }: ChartsPageProps) => {
   return (
     <>
       {/* Playlist Background*/}
-      <Background color={`#${selectedChart.color}`} />
+      <Background imgUrl={selectedChart.img} />
 
       {/* Playlist Background - Info */}
       <BackgroundInfo

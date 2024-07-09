@@ -12,6 +12,8 @@ import Sidebar from "./Sidebar";
 import SongPlayer from "./SongPlayer";
 import FooterNav from "./FooterNav";
 
+import Playlists from "./Playlists";
+
 export {
   Background,
   BackgroundInfo,
@@ -26,4 +28,5 @@ export {
   Loader,
   FooterNav,
   Footer,
+  Playlists,
 };

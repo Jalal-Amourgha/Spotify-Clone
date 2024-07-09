@@ -19,6 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <link rel="icon" href="./favicon.ico" sizes="any" />
       <body className={`${inter.className} overflow-hidden lg:m-2`}>
         <AppWrapper>
           <App>{children}</App>

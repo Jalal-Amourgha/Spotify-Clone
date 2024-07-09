@@ -45,19 +45,22 @@ const EditPlaylist = () => {
       <div className="w-[500px] bg-neutral-800 p-5 rounded-lg">
         <div className="flex justify-between items-center mb-5">
           <h1 className="text-2xl text-white font-semibold">Edit details</h1>
-          <IoClose onClick={() => setEditPlaylist({ situation: false })} />
+          <IoClose
+            size="25"
+            onClick={() => setEditPlaylist({ situation: false })}
+          />
         </div>
         <div className="flex flex-col gap-5">
           <input
             type="text"
             placeholder="Add a name"
-            className="bg-neutral-700 text-white p-2 rounded-lg w-full"
+            className="bg-neutral-700 text-white p-2 rounded-lg w-full outline-none"
             value={playlistName}
             onChange={(e) => setPlaylistName(e.target.value)}
           />
           <textarea
             placeholder="Add an optinal description"
-            className="bg-neutral-700 text-white p-2 rounded-lg w-full"
+            className="bg-neutral-700 text-white p-2 rounded-lg w-full outline-none"
             value={playlistDescription}
             onChange={(e) => setPlaylistDescription(e.target.value)}
           ></textarea>

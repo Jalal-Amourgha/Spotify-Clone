@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Spotify Clone :musical_note:
 
-## Getting Started
+This is a Spotify clone built using Next.js, TypeScript and Tailwind CSS. The application mimics the core functionalities of Spotify, allowing users to create their own playlists and like songs.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Browse Music**: Search and browse through a vast collection of songs, artists, albums, and charts.
+- **Play Music**: Stream music using an integrated ReactPlayer.
+- **Create Playlists**: Users can create their own playlists.
+- **Liked Songs**: Users can like songs and access them in a dedicated playlist.
+- **Responsive Design**: The application is fully responsive, providing a seamless experience across all devices.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies Used
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Next.js**: A React framework for server-side rendering and building static web applications.
+- **TypeScript**: A superset of JavaScript that adds static types, enhancing code quality and maintainability.
+- **Tailwind CSS**: A utility-first CSS framework for rapidly building custom user interfaces.
+- **ReactPlayer**: A React component for playing media from various sources including YouTube, SoundCloud, and more.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Live
 
-## Learn More
+Visit the live demo of the Spotify Clone Website: <a href="(https://spotifyclone-git-main-jalals-projects-129a6bc1.vercel.app/)" target="_blank">Here</a>
 
-To learn more about Next.js, take a look at the following resources:
+## Usage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Browse**: Use the search bar to find songs, artists, albums, or charts.
+- **Play Music**: Click on a song to start playing it. The player controls allow you to play, pause, and skip tracks.
+- **Create Playlists**: Navigate to the 'Your Library' section and create new playlists.
+- **Like Songs**: Click the heart icon to add a song to your 'Liked Songs' playlist.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Screenshots
 
-## Deploy on Vercel
+<div> 
+<img src="https://media.discordapp.net/attachments/584650557688512533/1260035294447665162/1.JPG?ex=668ddad0&is=668c8950&hm=72ce2c9ee46fc837c3ab7b2b22e007785d0a127116e04bc54d5e6dcfe06abc78&=&format=webp&width=867&height=418" width="330" />
+<img src="https://media.discordapp.net/attachments/584650557688512533/1260035294829220003/2.JPG?ex=668ddad0&is=668c8950&hm=219b48e90cd49f8c24c81a99b2f36714b22be2229ff5573b07c827f41f096f1e&=&format=webp&width=878&height=418" width="330" />
+<img src="https://media.discordapp.net/attachments/584650557688512533/1260035295353503866/5.JPG?ex=668ddad0&is=668c8950&hm=c0fcf09aa34883d64ddd2f912c0838a2c915916e25facdd6ecc7d36c74ba9bdd&=&format=webp&width=887&height=418" width="330" />
+<img src="https://media.discordapp.net/attachments/584650557688512533/1260035295102111805/4.JPG?ex=668ddad0&is=668c8950&hm=156d347264585818b0bf11a1f32b0c6e294b23918e0fcb4f042e227e8fb0672e&=&format=webp&width=887&height=418" width="330" />
+<img src="https://media.discordapp.net/attachments/584650557688512533/1260035295651561532/6.JPG?ex=668ddad0&is=668c8950&hm=2a54e67e922f97ce69b692541527d067f73137b28a5b550cc448c8da63def870&=&format=webp&width=869&height=418" width="330" />
+<img src="https://media.discordapp.net/attachments/584650557688512533/1260035295999692872/7.JPG?ex=668ddad0&is=668c8950&hm=6f5faca00c2eebf98e1db678276f353b510bcc54dec9cc2c13456caac4caec7c&=&format=webp&width=866&height=418" width="330" />
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+</div>

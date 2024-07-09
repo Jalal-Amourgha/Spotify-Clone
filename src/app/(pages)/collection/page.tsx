@@ -10,7 +10,7 @@ const CollectionPage = () => {
   return (
     <>
       {/* Playlist Background*/}
-      <Background color="#4d2fb5" />
+      <Background bgColor="#4d2fb5" />
 
       {/* Display Playlist Info */}
 

@@ -1,19 +1,13 @@
 "use client";
 
-import { fetchData } from "@/app/actions/fetchData";
-import { DataProps, DataSongProps, PlaylistProps, SongProps } from "@/types";
+import { Data } from "@/constants/_data";
+import { DataSongProps, SongProps } from "@/types";
 import { createContext, useContext, useState, useEffect } from "react";
 
 const AppContext = createContext<any>(undefined);
 
 export function AppWrapper({ children }: { children: React.ReactNode }) {
-  const [data, setData] = useState<DataProps>({
-    artists: [],
-    albums: [],
-    categories: [],
-    data: [],
-    featuredCharts: [],
-  });
+  const [data, setData] = useState(Data);
   const [scrollHeight, setScrollHeight] = useState<number>(0);
   const [songSelected, setSongSelected] = useState<SongProps>({
     url: "",
@@ -37,8 +31,6 @@ export function AppWrapper({ children }: { children: React.ReactNode }) {
   });
 
   useEffect(() => {
-    fetchData().then((res) => setData(res));
-
     const savedData = JSON.parse(localStorage.getItem("spotify-clone") || "{}");
     setLikedSongs(savedData.likedSongs || []);
     setPlaylists(savedData.playlists || []);

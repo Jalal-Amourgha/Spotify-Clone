@@ -109,7 +109,17 @@ const SongPlayer = () => {
               )}
             </div>
             <div className="flex flex-col gap-1">
-              <h1 className="text-lg font-semibold hover:text-primary cursor-pointer">
+              <h1
+                className="text-lg font-semibold hover:text-primary cursor-pointer"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  router.push(
+                    `/song/${songSelected.name
+                      .toLowerCase()
+                      .replaceAll(" ", "")}`
+                  );
+                }}
+              >
                 {songSelected.name}
               </h1>
               <p className="text-gray">{songSelected.artist}</p>

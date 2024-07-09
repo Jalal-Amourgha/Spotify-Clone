@@ -63,7 +63,7 @@ const PlaylistPage = ({ params }: PlaylistPageProps) => {
   return (
     <>
       <div
-        className={`h-[400px] w-full`}
+        className={`h-[400px] w-full cursor-pointer`}
         style={{ background: `linear-gradient(#5d5d5d, #171717)` }}
       >
         <div
@@ -96,7 +96,7 @@ const PlaylistPage = ({ params }: PlaylistPageProps) => {
             onClick={() => setShowPlaylistProps(!showPlaylistProps)}
           />
           {showPlaylistProps ? (
-            <div className="absolute top-10 left-0  bg-neutral-700 p-1 rounded-lg flex flex-col gap-1 text-white w-56">
+            <div className="absolute top-10 left-0 z-20 bg-neutral-700 p-1 rounded-lg flex flex-col gap-1 text-white w-56">
               <div
                 className="flex items-center gap-2 rounded p-2 cursor-pointer hover:bg-neutral-800"
                 onClick={() =>

@@ -41,7 +41,7 @@ const GnerePage = ({ params }: PageProps) => {
   return (
     <>
       {/* Background */}
-      <Background color={`#${categorySelected.color}`} />
+      <Background bgColor={`#${categorySelected.color}`} />
 
       {/* Background Info*/}
 
