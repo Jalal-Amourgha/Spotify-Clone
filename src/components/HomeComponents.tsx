@@ -4,7 +4,7 @@ import { useState } from "react";
 import { FaPlayCircle } from "react-icons/fa";
 
 import Slider from "react-slick";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface HomeComponentsProps {
   data: any[];

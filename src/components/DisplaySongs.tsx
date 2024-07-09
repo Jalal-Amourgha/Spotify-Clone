@@ -64,7 +64,7 @@ const DisplaySongs = ({
       img: song.img,
       duration: song.duration,
     });
-    setPlaylistSelected(data.filter((e, i) => i > indexOfSelectedSong));
+    setPlaylistSelected(data.filter((_e, i) => i > indexOfSelectedSong));
     setPlaying(true);
   };
 

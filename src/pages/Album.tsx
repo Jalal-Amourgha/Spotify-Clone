@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useAppContext } from "../context";
 import { useParams } from "react-router-dom";
 import { AlbumProps } from "../types";

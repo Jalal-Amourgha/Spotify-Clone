@@ -1,6 +1,6 @@
 # Spotify Clone :musical_note:
 
-This is a Spotify clone built using Next.js, TypeScript and Tailwind CSS. The application mimics the core functionalities of Spotify, allowing users to create their own playlists and like songs.
+This is a Spotify clone built using React, Vite, TypeScript and Tailwind CSS. The application mimics the core functionalities of Spotify, allowing users to create their own playlists and like songs.
 
 ## Features
 
@@ -12,14 +12,15 @@ This is a Spotify clone built using Next.js, TypeScript and Tailwind CSS. The ap
 
 ## Technologies Used
 
-- **Next.js**: A React framework for server-side rendering and building static web applications.
+- **React**: A JavaScript library for building user interfaces.
+- **Vite**: A fast build tool and development server for modern web projects.
 - **TypeScript**: A superset of JavaScript that adds static types, enhancing code quality and maintainability.
 - **Tailwind CSS**: A utility-first CSS framework for rapidly building custom user interfaces.
 - **ReactPlayer**: A React component for playing media from various sources including YouTube, SoundCloud, and more.
 
 ## Live
 
-Visit the live demo of the Spotify Clone Website: <a href="(https://spotifyclone-git-main-jalals-projects-129a6bc1.vercel.app/)" target="_blank">Here</a>
+Visit the live demo of the Spotify Clone Website: <a href="https://Jalal-Amourgha.github.io/Spotify-Clone/" target="_blank">Here</a>
 
 ## Usage
 

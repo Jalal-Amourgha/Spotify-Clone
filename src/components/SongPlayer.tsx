@@ -31,7 +31,7 @@ const SongPlayer = () => {
   const [volume, setVolume] = useState(0.5); // Initial volume set to 50%
   const [muted, setMuted] = useState<boolean>(false);
   const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0); // Total duration in seconds
+
   const playerRef: any = useRef(null);
   const location = useLocation();
   const navigate = useNavigate();
@@ -167,8 +167,6 @@ const SongPlayer = () => {
                     height="0px"
                     width="0px"
                     onProgress={handleProgress}
-                    onDuration={setDuration}
-                    // onEnded={handleEnded}
                   />
                 ) : (
                   ""

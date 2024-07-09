@@ -16,7 +16,6 @@ const ArtistPage = () => {
   const [loading, setLoading] = useState(false);
   const [artistInfo, setArtistInfo] = useState({ name: "", img: "" });
   const [artistSongs, setArtistSongs] = useState<any>("");
-  const [listeners, setListeners] = useState(5946);
 
   useEffect(() => {
     if (id && data.albums.length > 1) {
@@ -55,7 +54,7 @@ const ArtistPage = () => {
         img={artistInfo.img}
         type="Artist"
         title={artistInfo.name}
-        description={`${numberWithCommas(listeners)} Totaly listeners`}
+        description={`${numberWithCommas(542656265)} Totaly listeners`}
         verified
         rounded
       />
