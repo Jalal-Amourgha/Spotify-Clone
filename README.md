@@ -35,7 +35,7 @@ Visit the live demo of the Spotify Clone Website: <a href="https://Jalal-Amourgh
 <img src="https://media.discordapp.net/attachments/584650557688512533/1260035294447665162/1.JPG?ex=668ddad0&is=668c8950&hm=72ce2c9ee46fc837c3ab7b2b22e007785d0a127116e04bc54d5e6dcfe06abc78&=&format=webp&width=867&height=418" width="330" />
 <img src="https://media.discordapp.net/attachments/584650557688512533/1260035294829220003/2.JPG?ex=668ddad0&is=668c8950&hm=219b48e90cd49f8c24c81a99b2f36714b22be2229ff5573b07c827f41f096f1e&=&format=webp&width=878&height=418" width="330" />
 <img src="https://media.discordapp.net/attachments/584650557688512533/1260035295353503866/5.JPG?ex=668ddad0&is=668c8950&hm=c0fcf09aa34883d64ddd2f912c0838a2c915916e25facdd6ecc7d36c74ba9bdd&=&format=webp&width=887&height=418" width="330" />
-<img src="https://media.discordapp.net/attachments/584650557688512533/1260035295102111805/4.JPG?ex=668ddad0&is=668c8950&hm=156d347264585818b0bf11a1f32b0c6e294b23918e0fcb4f042e227e8fb0672e&=&format=webp&width=887&height=418" width="330" />
+<img src="https://media.discordapp.net/attachments/1260908645395337246/1261814051927883887/4.JPG?ex=66945369&is=669301e9&hm=935c0a0b00f4510bc655e202e1f9101031ffaccae04273ef465ecc0c22430e0d&=&format=webp&width=887&height=418" width="330" />
 <img src="https://media.discordapp.net/attachments/584650557688512533/1260035295651561532/6.JPG?ex=668ddad0&is=668c8950&hm=2a54e67e922f97ce69b692541527d067f73137b28a5b550cc448c8da63def870&=&format=webp&width=869&height=418" width="330" />
 <img src="https://media.discordapp.net/attachments/584650557688512533/1260035295999692872/7.JPG?ex=668ddad0&is=668c8950&hm=6f5faca00c2eebf98e1db678276f353b510bcc54dec9cc2c13456caac4caec7c&=&format=webp&width=866&height=418" width="330" />
 
